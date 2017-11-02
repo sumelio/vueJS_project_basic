@@ -19,3 +19,7 @@ $ npm run dev
 
 Preprocesadores de css
 http://stylus-lang.com/
+
+```bash
+$ npm install --save-dev pug pug-loader stylus stylus-loader
+```
