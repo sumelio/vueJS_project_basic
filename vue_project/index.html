@@ -6,9 +6,10 @@
 </head>
 <body>
   <div id="divApp">  
-     <button v-on:click="counter ++" > Add 1</button>
-     <button v-on:click="counter --" >Remove 1</button>
-     The counter is in {{ counter }}
+     <input type="text" name="name"  placeholder="Enter your name" v-model="name" >
+
+     <p> Your name in uppercase is {{name | uppercase}}<p>
+
  </div>
 
 
@@ -17,17 +18,14 @@
  	let varApp = new Vue({
     el: '#divApp',
     data: {
-     counter: 0 
+     name: '' 
     }
-    //,
-/*    methods: {
-      add: function(){
-        this.counter ++
-      },
-      remove: function(){
-        this.counter --
-      }
-    }*/
+     ,
+     filters:{
+       uppercase: function (str){
+         return str.toUpperCase()
+       }
+     }
    }
   );
 
