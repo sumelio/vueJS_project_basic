@@ -10,9 +10,12 @@
 
      <form v-on:submit.prevent="mySubmit"    >
        <h2>Wich one is your favorite course?..</h2>
-       <template  v-for="courseItem in courses "  >
-       <input v-model="coursesSelect" type="checkbox"  v-bind:id="courseItem.value"  v-bind:value="courseItem.value">
-       <label v-bind:for="courseItem.value">{{courseItem.value}}</label>
+       <template  v-for="course in courses "  >
+       
+         <course :course="course" @checked="selectCourse" ></course>
+
+<!--        <input v-model="coursesSelect" type="checkbox"  v-bind:id="courseItem.value"  v-bind:value="courseItem.value">
+       <label v-bind:for="courseItem.value">{{courseItem.value}}</label> -->
       </template>
 
        <button type="submit" >Send</button>
@@ -23,6 +26,24 @@
 
  <script src="js/vue.min.js"></script>
  <script type="text/javascript" >
+              //name component
+ Vue.component('course', {
+      props: ['course'],
+      methods: {
+        onchange: function (ev){
+          this.$emit('checked', this.course.value, ev.target.checked)
+
+
+        }
+      },
+      template : `
+         <div>
+         <input type="checkbox"  v-bind:id="course.value" @change="onchange" v-bind:value="course.value">
+         <label v-bind:for="course.value">{{course.value}}</label>
+         </div>
+      `
+ } )
+
  	let varApp = new Vue({
     el: '#divApp',
     data: {
@@ -41,6 +62,16 @@
      methods: {
        mySubmit:  function () {
           console.log(this.coursesSelect)
+       },
+
+       selectCourse: function (course_value, ev_target_checked ){
+          if(ev_target_checked){
+            this.coursesSelect.push(course_value);
+          } else {
+            let index = this.coursesSelect.indexOf(course_value);
+            this.coursesSelect.splice(index, 1);
+          }
+
        }
      }
    }
