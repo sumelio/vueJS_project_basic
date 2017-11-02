@@ -6,8 +6,8 @@
 </head>
 <body>
   <div id="divApp">  
-     <button :click="add" > Add 1</button>
-     <button :click="remove" >Remove 1</button>
+     <button  @click="add" > Add 1</button>
+     <button v-on:click="remove" >Remove 1</button>
      The counter is in {{ counter }}
  </div>
 
