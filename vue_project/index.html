@@ -5,9 +5,8 @@
 	<title>Vue.js project</title>
 </head>
 <body>
-<div id="divApp">
- Hola {{ name }} 
-   <a :href="url"> {{ page }} Go to google</a>
+<div id="divApp"> 
+   <a v-if="show" :href="url"  target="_blank" > {{ page }} Go to google</a>
 </div>
 
 
@@ -18,7 +17,8 @@
       data: {
          name: 'Platzi',
          url:'https://www.google.com.co',
-         page: 'Go to google page'
+         page: 'Go to google page',
+         show: true
       }
 
  	});
