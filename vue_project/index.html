@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.js project</title>
+</head>
+<body>
+<div id="divApp">
+ Hola {{ name }} 
+   <a :href="url"> {{ page }} Go to google</a>
+</div>
+
+
+ <script src="js/vue.min.js"></script>
+ <script type="text/javascript" >
+ 	let varApp = new Vue({
+      el: '#divApp',
+      data: {
+         name: 'Platzi',
+         url:'https://www.google.com.co',
+         page: 'Go to google page'
+      }
+
+ 	});
+
+
+ </script>
+</body>
+</html>
