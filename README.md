@@ -23,3 +23,9 @@ http://stylus-lang.com/
 ```bash
 $ npm install --save-dev pug pug-loader stylus stylus-loader
 ```
+
+to pug
+http://html2jade.org/
+
+to stylus
+http://beautifytools.com/css-to-stylus-converter.php
