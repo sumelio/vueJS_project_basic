@@ -6,20 +6,15 @@
 </head>
 <body>
   <div id="divApp">  
-     <input type="text" name="name"  placeholder="Enter your name" v-model="name" >
-
-     <p> Your name in uppercase is {{name | uppercase}}<p>
+ 
 
      <form v-on:submit.prevent="mySubmit"    >
-       <h2>Wich one is your favorite course:</h2>
-       <input v-model="cursos" type="checkbox"  id="vue"  value="vue">
-       <label for="vue">Vue.js course</label>
-       <input v-model="cursos"  type="checkbox"  id="seo"  value="vue">
-       <label for="seo">seocourse</label>
-       <input v-model="cursos" type="checkbox"  id="React"  value="React">
-       <label for="vue">React.js and redux</label>
-       <input v-model="cursos" type="checkbox"  id="growth"  value="growth">
-       <label for="growth">growth</label>
+       <h2>Wich one is your favorite course?..</h2>
+       <template  v-for="courseItem in courses "  >
+       <input v-model="coursesSelect" type="checkbox"  v-bind:id="courseItem.value"  v-bind:value="courseItem.value">
+       <label v-bind:for="courseItem.value">{{courseItem.value}}</label>
+      </template>
+
        <button type="submit" >Send</button>
      </form>
 
@@ -32,17 +27,20 @@
     el: '#divApp',
     data: {
      name: '' ,
-     cursos: []
+     courses: [
+       { name: 'Vue.js course',
+         value: 'vue'  },
+       { name: 'SEO course',
+         value: 'seo'  },
+       { name: 'growth course',
+         value: 'growth'  }
+     ],
+     coursesSelect: []
     }
-     ,
-     filters:{
-       uppercase: function (str){
-         return str.toUpperCase()
-       }
-     },
+     , 
      methods: {
        mySubmit:  function () {
-          console.log(this.cursos)
+          console.log(this.coursesSelect)
        }
      }
    }
