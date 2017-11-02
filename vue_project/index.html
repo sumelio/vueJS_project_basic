@@ -6,8 +6,8 @@
 </head>
 <body>
   <div id="divApp">  
-     <button  @click="add" > Add 1</button>
-     <button v-on:click="remove" >Remove 1</button>
+     <button v-on:click="counter ++" > Add 1</button>
+     <button v-on:click="counter --" >Remove 1</button>
      The counter is in {{ counter }}
  </div>
 
@@ -18,15 +18,16 @@
     el: '#divApp',
     data: {
      counter: 0 
-    },
-    methods: {
+    }
+    //,
+/*    methods: {
       add: function(){
         this.counter ++
       },
       remove: function(){
         this.counter --
       }
-    }
+    }*/
    }
   );
 
