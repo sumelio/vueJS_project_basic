@@ -5,25 +5,29 @@
 	<title>Vue.js project</title>
 </head>
 <body>
-<div id="divApp"> 
-   <a v-if="show" :href="url"  target="_blank" > {{ page }} Go to google</a>
-</div>
+  <div id="divApp"> 
+    <template v-if="show" >
+    <h1>This is my title</h1>
+     <h2>This is my subtitle</h2>
+     <a :href="url"  target="_blank" > {{ page }} Go to google</a>
+   </template>
+ </div>
 
 
  <script src="js/vue.min.js"></script>
  <script type="text/javascript" >
  	let varApp = new Vue({
-      el: '#divApp',
-      data: {
-         name: 'Platzi',
-         url:'https://www.google.com.co',
-         page: 'Go to google page',
-         show: true
-      }
+    el: '#divApp',
+    data: {
+     name: 'Platzi',
+     url:'https://www.google.com.co',
+     page: 'Go to google page',
+     show: true
+   }
 
- 	});
+ });
 
 
- </script>
+</script>
 </body>
 </html>
