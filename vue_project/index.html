@@ -6,8 +6,9 @@
 </head>
 <body>
   <div id="divApp">  
-    <h1>{{ title  | uppercase }}</h1>
-     <h2>{{ subtitle | lowercase | capitalize  }}</h2>  
+     <button v-on:click="add" > Add 1</button>
+     <button v-on:click="remove" >Remove 1</button>
+     The counter is in {{ counter }}
  </div>
 
 
@@ -16,23 +17,19 @@
  	let varApp = new Vue({
     el: '#divApp',
     data: {
-     title: 'You are in Platzi',
-     subtitle:'You are looking the Vue.js course '
-   },
-   filters: {
-      uppercase: function (str) {
-         // return str + ' things'
-         return str.toUpperCase()
+     counter: 0 
+    },
+    methods: {
+      add: function(){
+        this.counter ++
       },
-      lowercase: function (str){
-          return str.toLowerCase();
-      },
-      capitalize: function (str){
-        // str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-        return str[0].toUpperCase() + str.substring(1);
+      remove: function(){
+        this.counter --
       }
+    }
    }
- });
+  );
+
 
 
 </script>
