@@ -5,15 +5,9 @@
 	<title>Vue.js project</title>
 </head>
 <body>
-  <div id="divApp"> 
-    <div v-show="show" >
-    <h1>This is my title</h1>
-     <h2>This is my subtitle</h2>
-     <a :href="url"  target="_blank" > {{ page }} Go to google</a>
-   </div>
-  <div v-show="! show" >
-    This is hidden
-  </div>
+  <div id="divApp">  
+    <h1>{{ title  | uppercase }}</h1>
+     <h2>{{ subtitle | lowercase }}</h2>  
  </div>
 
 
@@ -22,12 +16,18 @@
  	let varApp = new Vue({
     el: '#divApp',
     data: {
-     name: 'Platzi',
-     url:'https://www.google.com.co',
-     page: 'Go to google page',
-     show: true
+     title: 'You are in Platzi',
+     subtitle:'You are looking the Vue.js course '
+   },
+   filters: {
+      uppercase: function (str) {
+         // return str + ' things'
+         return str.toUpperCase()
+      },
+      lowercase: function (str){
+          return str.toLowerCase();
+      }
    }
-
  });
 
 
