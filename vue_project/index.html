@@ -6,11 +6,14 @@
 </head>
 <body>
   <div id="divApp"> 
-    <template v-if="show" >
+    <div v-show="show" >
     <h1>This is my title</h1>
      <h2>This is my subtitle</h2>
      <a :href="url"  target="_blank" > {{ page }} Go to google</a>
-   </template>
+   </div>
+  <div v-show="! show" >
+    This is hidden
+  </div>
  </div>
 
 
