@@ -10,6 +10,19 @@
 
      <p> Your name in uppercase is {{name | uppercase}}<p>
 
+     <form v-on:submit.prevent="mySubmit"    >
+       <h2>Wich one is your favorite course:</h2>
+       <input v-model="cursos" type="checkbox"  id="vue"  value="vue">
+       <label for="vue">Vue.js course</label>
+       <input v-model="cursos"  type="checkbox"  id="seo"  value="vue">
+       <label for="seo">seocourse</label>
+       <input v-model="cursos" type="checkbox"  id="React"  value="React">
+       <label for="vue">React.js and redux</label>
+       <input v-model="cursos" type="checkbox"  id="growth"  value="growth">
+       <label for="growth">growth</label>
+       <button type="submit" >Send</button>
+     </form>
+
  </div>
 
 
@@ -18,12 +31,18 @@
  	let varApp = new Vue({
     el: '#divApp',
     data: {
-     name: '' 
+     name: '' ,
+     cursos: []
     }
      ,
      filters:{
        uppercase: function (str){
          return str.toUpperCase()
+       }
+     },
+     methods: {
+       mySubmit:  function () {
+          console.log(this.cursos)
        }
      }
    }
