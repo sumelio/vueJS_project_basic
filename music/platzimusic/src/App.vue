@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app
+  #app 
     img(src='https://sumelio.github.io/vueJS_project_basic/music/platzimusic/dist/logo.png')
     h1 PlatziMusic
     select(v-model="selectedCountry")
